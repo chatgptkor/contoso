@@ -19,6 +19,7 @@ jobs:
           registry: ${{ secrets.registry }}
           repository: ${{ secrets.repository }}
           image:  content-web
+          folder: content-web
           branch: main
           tag: ${{ github.sha }}
       - name: Azure login
@@ -42,5 +43,5 @@ jobs:
           namespace: 'contosoneuro'
           manifests: |
              all-in-one-web.yaml
-          images: '${{ secrets.registry }}.azurecr.io/${{ secrets.repository }}:${{ github.sha }}'
+          images: '${{ secrets.registry }}.azurecr.io/${{ secrets.repository }}/content-web:${{ github.sha }}'
           pull-images: false
